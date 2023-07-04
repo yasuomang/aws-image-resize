@@ -1,6 +1,7 @@
 # Node.js directories and files
 node_modules
 .pnpm-store
+out/*
 
 # Deno directories and files
 .cache

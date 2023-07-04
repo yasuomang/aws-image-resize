@@ -56,7 +56,8 @@ exports.handler = async (event) => {
         'image/png',
         'image/svg+xml',
         'image/tiff',
-        'image/bmp'
+        'image/bmp',
+        'binary/octet-stream'
     ];
 
     const unsupportedSharpMimeTypes = [
