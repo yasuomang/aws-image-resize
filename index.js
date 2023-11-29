@@ -39,10 +39,12 @@ function getResource(resourcePath) {
     });
 }
 
+const PATH_SUFFIX = 'image-resize'
+
 exports.handler = async (event) => {
     const pathParameters = event.pathParameters;
     let path = pathParameters.proxy || pathParameters[Object.keys(pathParameters)[0]];
-    if(path.startsWith('image-resize')) path = path.replace('image-resize/', '')
+    if(path.startsWith(PATH_SUFFIX)) path = path.replace(PATH_SUFFIX + '/', '')
     let parts = path.split('/');
     const resizeOption = parts.shift();
     const sizeAndAction = resizeOption.split('_');
@@ -150,6 +152,17 @@ exports.handler = async (event) => {
         .resize(width, height, { withoutEnlargement: true, fit })
         .rotate()
         .toBuffer();
+
+
+    // save newly created image to S3.
+    await S3.putObject({
+        Body: result,
+        Bucket: BUCKET,
+        ContentType: originalImageMime,
+        Key: PATH_SUFFIX + '/' + path,
+        CacheControl: DEFAULT_CACHE_HEADER
+    }).promise();
+
 
     // return created image as a response.
     return {
