@@ -49,7 +49,7 @@ exports.handler = async (event, context, callback) => {
     console.log('BUCKET', BUCKET);
     console.log('responseCode', response.status);
     console.log('path', path);
-    if (response.status == 403 && path.startsWith(`/${PATH_SUFFIX}`)) {
+    if ((response.status == 403 || response.status == 404) && path.startsWith(`/${PATH_SUFFIX}`)) {
         // fetch the uri of original image
         path = path.replace(`/${PATH_SUFFIX}/`, '')
         let parts = path.split('/');
