@@ -1,0 +1,101 @@
+{
+    "Records": [
+      {
+        "cf": {
+          "config": {
+            "distributionDomainName": "YOUR_distributionDomainName",
+            "distributionId": "YOUR_distributionId",
+            "eventType": "viewer-response",
+            "requestId": ""
+          },
+          "request": {
+            "clientIp": "69.28.52.250",
+            "headers": {
+              "x-forwarded-for": [
+                {
+                  "key": "X-Forwarded-For",
+                  "value": "69.28.52.250"
+                }
+              ],
+              "user-agent": [
+                {
+                  "key": "User-Agent",
+                  "value": "Amazon CloudFront"
+                }
+              ],
+              "via": [
+                {
+                  "key": "Via",
+                  "value": "1.1 90fad974d764682d9ebcf5193bde136b.cloudfront.net (CloudFront)"
+                }
+              ],
+              "upgrade-insecure-requests": [
+                {
+                  "key": "upgrade-insecure-requests",
+                  "value": "1"
+                }
+              ],
+              "sec-fetch-user": [
+                {
+                  "key": "sec-fetch-user",
+                  "value": "?1"
+                }
+              ],
+              "sec-fetch-site": [
+                {
+                  "key": "sec-fetch-site",
+                  "value": "none"
+                }
+              ],
+              "sec-fetch-mode": [
+                {
+                  "key": "sec-fetch-mode",
+                  "value": "navigate"
+                }
+              ],
+              "accept-encoding": [
+                {
+                  "key": "Accept-Encoding",
+                  "value": "gzip"
+                }
+              ]
+            },
+            "method": "GET",
+            "origin": {
+              "s3": {
+                "authMethod": "origin-access-identity",
+                "customHeaders": {},
+                "domainName": "YOUR_distributionId",
+                "path": "",
+                "region": "YOUR_region"
+              }
+            },
+            "querystring": "",
+            "uri": "/image-resize/100x100_cover/YOUR_S3_PATH"
+          },
+          "response": {
+            "status": "403",
+            "statusDescription": "OK",
+            "headers": {
+              "server": [
+                {
+                  "key": "Server",
+                  "value": "MyCustomOrigin"
+                }
+              ],
+              "set-cookie": [
+                {
+                  "key": "Set-Cookie",
+                  "value": "theme=light"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "sessionToken=abc123; Expires=Wed, 09 Jun 2021 10:18:14 GMT"
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
+  }
